@@ -2,15 +2,15 @@
 <BaliProject version="2.0" title="vhdlrng" device="LCMXO2-7000HE-4TG144C" synthesis="synplify" default_implementation="vhdlrng">
     <Options/>
     <Implementation title="vhdlrng" dir="vhdlrng" description="vhdlrng" default_strategy="Strategy1">
-        <Options def_top="firo_open"/>
+        <Options def_top="blinking_led"/>
         <Source name="vhdlrng/source/blinking_led.vhd" type="VHDL" type_short="VHDL">
             <Options top_module="blinking_led"/>
         </Source>
         <Source name="vhdlrng/source/firo_closed.vhd" type="VHDL" type_short="VHDL">
-            <Options top_module="firo_closed"/>
+            <Options/>
         </Source>
         <Source name="vhdlrng/source/firo_open.vhd" type="VHDL" type_short="VHDL">
-            <Options top_module="firo_open"/>
+            <Options/>
         </Source>
         <Source name="vhdlrng/source/vhdlrng.vhd" type="VHDL" type_short="VHDL">
             <Options/>
