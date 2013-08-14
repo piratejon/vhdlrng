@@ -9,7 +9,17 @@ entity firo_open is
 end firo_open;
 
 architecture behavior of firo_open is
+	component lut4_inverter is
+		port (
+			a : in std_logic;
+			y : out std_logic
+		);
+	end component;
+
 begin
+--	x <= a;
+--	y <= not b;
+
+	l4i : lut4_inverter port map(a=>b, y=>y);
 	x <= a;
-	y <= not b;
 end behavior;

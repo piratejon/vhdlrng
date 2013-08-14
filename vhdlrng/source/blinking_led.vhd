@@ -22,8 +22,9 @@
 
 LIBRARY ieee;
 USE ieee.std_logic_1164.all;
-LIBRARY lattice;
-USE lattice.components.all;
+
+library machxo2;
+use machxo2.all;
 
 ENTITY blinking_led IS
    PORT(
@@ -43,8 +44,10 @@ ARCHITECTURE behavior OF blinking_led IS
    END COMPONENT;
    
    component fibonacci_ring_oscillator
+		generic (
+			poly : std_logic_vector := "110000001111010"
+		);
 		port (
-			clk_port : in std_logic;
 			rnd_port : inout std_logic
 		);
    end component;
@@ -54,8 +57,9 @@ BEGIN
    OSCInst0: OSCH
       GENERIC MAP (NOM_FREQ  => "53.20")
       PORT MAP (STDBY => '0', OSC => clk, SEDSTDBY => OPEN);
-	fib0: fibonacci_ring_oscillator
-		port map ( rnd_port => rnd, clk_port => clk );
+	firo0: fibonacci_ring_oscillator
+		generic map ( poly => "110000001111010" )
+		port map ( rnd_port => rnd );
    PROCESS(clk)
       VARIABLE count :   INTEGER RANGE 0 TO 12_500_000;
    BEGIN
